@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="./static/css/main.css" th:href="@{/css/main.css}">
+<link rel="stylesheet" type="text/css" href="./static/css/pages.css" th:href="@{/css/pages.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="nav-top">
+		<a th:href="@{/}">Sheridan Rec Volleyball</a>
+	</div>
+	
+	<div style="color:red;" th:each="error:${errors}" th:text="${error}"></div><br>
+	
+	<div id="nav-bottom">
+		<a th:href="@{/addPlayer}"><button class="nav-button">Add Player</button></a><br>
+		<a th:href="@{/viewTeams}"><button class="nav-button">View Teams</button></a><br>
+		<a th:href="@{/editTeam}"><button class="nav-button">Edit Teams</button></a><br>
+		<a th:href="@{/search}"><button class="nav-button">Search</button></a>
+	</div>
+	
+	<div id="edit-form">
+	<form id="new-player-form" action="#" th:action="@{/modify}" th:object="${player}">
+		<input class="text-input" type="hidden" th:field="*{id}" /><br>
+		Name: <input class="text-input" type="text" th:field="*{name}" /><br>
+		Age: <input class="text-input" type="text" th:field="*{age}" /><br>
+		Gender: <select class="text-input" th:field="*{gender}">
+			<option th:each="g:*{genders}" th:value="${g}" th:text="${g}" />		
+		</select> <br>
+		Phone: <input class="text-input" type="text" th:field="*{phone}" /><br>
+		Email: <input class="text-input" type="email" th:field="*{email}" /><br>
+		
+		<input id="button-input" type="submit" value="Edit Player" />
+	</form>
+	</div>
+</body>
+</html>

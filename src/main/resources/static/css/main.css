@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Patua+One|Roboto&display=swap');
+
+body {
+	margin: 0;
+	background:url("../images/volleyballimage.jpg") no-repeat center center fixed;
+	background-size: cover;
+	font-family: 'Roboto', sans-serif;
+}
+
+#nav-bottom {
+	background-color: pink;
+	display: flex;
+	flex-direction: row;
+}
+
+#nav-top {
+	background-color: white;
+	background-size: 100%;
+	padding: 20px;
+	font-family: 'Patua One', cursive;
+	font-size: 30px;
+}
+
+#nav-top a {
+	text-decoration: none;
+	color: black;
+}
+
+.nav-button {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	padding: 10px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.nav-button:hover {
+	background-color: white;
+	transition: 0.2s;
+	color: pink;
+}

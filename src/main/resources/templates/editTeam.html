@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="./static/css/main.css" th:href="@{/css/main.css}">
+<link rel="stylesheet" type="text/css" href="./static/css/pages.css" th:href="@{/css/pages.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="nav-top">
+		<a th:href="@{/}">Sheridan Rec Volleyball</a>
+	</div>
+	<div id="nav-bottom">
+		<a th:href="@{/addPlayer}"><button class="nav-button">Add Player</button></a><br>
+		<a th:href="@{/viewTeams}"><button class="nav-button">View Teams</button></a><br>
+		<a th:href="@{/editTeam}"><button class="nav-button">Edit Teams</button></a><br>
+		<a th:href="@{/search}"><button class="nav-button">Search</button></a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="./static/css/main.css" th:href="@{/css/main.css}">
+<link rel="stylesheet" type="text/css" href="./static/css/pages.css" th:href="@{/css/pages.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="nav-top">
+		<a th:href="@{/}">Sheridan Rec Volleyball</a>
+	</div>
+	<div id="nav-bottom">
+		<a th:href="@{/addPlayer}"><button class="nav-button">Add Player</button></a><br>
+		<a th:href="@{/viewTeams}"><button class="nav-button">View Teams</button></a><br>
+		<a th:href="@{/editTeam}"><button class="nav-button">Edit Teams</button></a><br>
+		<a th:href="@{/search}"><button class="nav-button">Search</button></a>
+	</div>
+
+	<div id="form">
+		<!-- Name -->
+		<form class="search-form" action="#" th:action="@{/searchName}" th:object="${player}">
+			Search Player Name:&nbsp<input class="search-input" type="text" name="name" />&nbsp
+			<input id="search-button" type="submit" value="Search" />
+		</form>
+		<br>
+		
+		<!-- Age -->
+		<form class="search-form" action="#" th:action="@{/searchAge}" th:object="${player}">
+			Search Player Age:&nbsp<input class="search-input" type="text" name="age" />&nbsp
+			<input id="search-button" type="submit" value="Search" />
+		</form>
+		<br>
+		
+		<!-- Gender TODO: Make drop down for gender -->
+		<form class="search-form" action="#" th:action="@{/searchGender}" th:object="${player}">
+			Search Player Gender:&nbsp<input class="search-input" type="text" name="gender" />&nbsp	
+			<input id="search-button" type="submit" value="Search" />
+		</form>
+		<br>
+		
+		<!-- Team TODO: Make drop down for teams -->
+		<form class="search-form" action="#" th:action="@{/searchTeam}" th:object="${team}">
+			Search Team:&nbsp<input class="search-input" type="text" name="team" />&nbsp
+			<input id="search-button" type="submit" value="Search" />
+		</form>
+	</div>
+	
+	<table id="team-table">
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Gender</th>
+			<th>Email</th>
+		</tr>
+		<tr th:each="p:${myPlayers}">
+			<td th:text="${p.name}"></td>
+			<td th:text="${p.age}"></td>
+			<td th:text="${p.gender}"></td>
+			<td th:text="${p.email}"></td>
+		</tr>
+	</table>
+</body>
+</html>

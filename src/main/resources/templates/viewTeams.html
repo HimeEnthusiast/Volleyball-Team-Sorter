@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="./static/css/main.css" th:href="@{/css/main.css}">
+<link rel="stylesheet" type="text/css" href="./static/css/pages.css" th:href="@{/css/pages.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="nav-top">
+		<a th:href="@{/}">Sheridan Rec Volleyball</a>
+	</div>
+	<div style="color:red;" th:each="error:${errors}" th:text="${error}"></div><br>
+	
+	<div id="nav-bottom">
+		<a th:href="@{/addPlayer}"><button class="nav-button">Add Player</button></a><br>
+		<a th:href="@{/viewTeams}"><button class="nav-button">View Teams</button></a><br>
+		<a th:href="@{/editTeam}"><button class="nav-button">Edit Teams</button></a><br>
+		<a th:href="@{/search}"><button class="nav-button">Search</button></a>
+	</div>
+	
+	<table id="team-table" th:each="t:${myTeams}">
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Gender</th>
+			<th>Email</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr th:each="p:${t.players}">
+			<td th:text="${p.name}"></td>
+			<td th:text="${p.age}"></td>
+			<td th:text="${p.gender}"></td>
+			<td th:text="${p.email}"></td>
+			<td>
+				<a id="edit-button" href="" th:href="@{/edit/{id}(id=${p.id})}">Edit</a>
+			</td>
+			<td>
+				<a id="delete-button" href="" th:href="@{/delete/{id}(id=${p.id})}">Delete</a>
+			</td>
+		</tr>
+	</table>
+	
+	<table border="1" th:each="t:${teams}">
+		
+	</table>
+</body>
+</html>
